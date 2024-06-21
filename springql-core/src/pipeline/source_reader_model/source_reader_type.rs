@@ -5,6 +5,6 @@
 pub enum SourceReaderType {
     NetClient,
     NetServer,
-    CAN,
+
     InMemoryQueue,
 }

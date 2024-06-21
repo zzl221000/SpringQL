@@ -4,7 +4,7 @@ use crate::{
     api::{error::Result, SpringSourceReaderConfig},
     pipeline::{Options, SourceReaderType},
     stream_engine::autonomous_executor::task::source_task::source_reader::{
-        can::CANSourceReader, net_client::NetClientSourceReader, net_server::NetServerSourceReader,
+        net_client::NetClientSourceReader, net_server::NetServerSourceReader,
         InMemoryQueueSourceReader, SourceReader,
     },
 };
@@ -24,7 +24,6 @@ impl SourceReaderFactory {
             SourceReaderType::NetServer => {
                 Ok(Box::new(NetServerSourceReader::start(options, config)?))
             }
-            SourceReaderType::CAN => Ok(Box::new(CANSourceReader::start(options, config)?)),
             SourceReaderType::InMemoryQueue => {
                 Ok(Box::new(InMemoryQueueSourceReader::start(options, config)?))
             }

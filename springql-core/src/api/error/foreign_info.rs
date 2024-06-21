@@ -17,8 +17,6 @@ pub enum ForeignInfo {
     /// HTTP client
     Http(SocketAddr),
 
-    /// Socket CAN interface
-    SocketCAN(String),
 
     /// In memory queue
     InMemoryQueue(QueueName),
@@ -29,7 +27,6 @@ impl Display for ForeignInfo {
         let detail = match self {
             ForeignInfo::GenericTcp(addr) => format!("TCP connection to {:?}", addr),
             ForeignInfo::Http(addr) => format!("HTTP connection to {:?}", addr),
-            ForeignInfo::SocketCAN(interface) => format!("Socket CAN interface {}", interface),
             ForeignInfo::InMemoryQueue(queue_name) => format!("In-memory queue {}", queue_name),
         };
 

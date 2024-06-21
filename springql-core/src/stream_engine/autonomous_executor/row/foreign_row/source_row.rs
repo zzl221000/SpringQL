@@ -1,9 +1,9 @@
 // This file is part of https://github.com/SpringQL/SpringQL which is licensed under MIT OR Apache-2.0. See file LICENSE-MIT or LICENSE-APACHE for full license details.
 
-mod can_frame_source_row;
+
 mod json_source_row;
 
-pub use can_frame_source_row::CANFrameSourceRow;
+
 pub use json_source_row::JsonSourceRow;
 
 use crate::{
@@ -17,7 +17,6 @@ use crate::{
 #[derive(Clone, PartialEq, Debug)]
 pub enum SourceRow {
     Json(JsonSourceRow),
-    CANFrame(CANFrameSourceRow),
     Raw(SchemalessRow),
 }
 
@@ -38,7 +37,6 @@ impl TryFrom<SourceRow> for SchemalessRow {
     fn try_from(row: SourceRow) -> Result<Self> {
         match row {
             SourceRow::Json(json_source_row) => json_source_row.into_schemaless_row(),
-            SourceRow::CANFrame(can_frame_source_row) => can_frame_source_row.into_schemaless_row(),
             SourceRow::Raw(schemaless_row) => Ok(schemaless_row),
         }
     }

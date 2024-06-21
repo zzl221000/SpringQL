@@ -22,7 +22,7 @@ pub use name::{
     StreamName, ValueAlias,
 };
 pub use option::{
-    CANOptions, Http1ClientOptions, HttpMethod, InMemoryQueueOptions, NetClientOptions,
+     Http1ClientOptions, HttpMethod, InMemoryQueueOptions, NetClientOptions,
     NetProtocol, NetServerOptions, Options, OptionsBuilder,
 };
 pub use pipeline_graph::{Edge, PipelineGraph};
